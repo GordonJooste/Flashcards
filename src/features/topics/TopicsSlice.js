@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-    topics: {}
+    topics: {
+        1: {
+            id: 1,
+            name: 'Example',
+            icon: 'https://static-assets.codecademy.com/skillpaths/react-redux/redux-quiz-app/calendar.svg',
+            quizIds: []
+        }
+    }
 }
 
 const topicsSlice = createSlice({
@@ -13,10 +20,12 @@ const topicsSlice = createSlice({
         const quizIds = [];
         state.topics = {
                 ...state.topics,
-                id: action.payload.id,
-                name: action.payload.name,
-                icon: action.payload.icon,
-                quizIds: quizIds}
+                [action.payload.id]: { 
+                    id: action.payload.id,
+                    name: action.payload.name,
+                    icon: action.payload.icon,
+                    quizIds: quizIds}
+                }
       }
     },
     extraReducers: {
