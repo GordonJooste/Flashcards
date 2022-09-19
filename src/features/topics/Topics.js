@@ -5,8 +5,7 @@ import ROUTES from "../../app/routes";
 import { topicsSelector } from "./TopicsSlice";
 
 export default function Topics() {
-  const topics = useSelector(topicsSelector); // replace this with a call to your selector to select all the topics in state
-  console.log(topics);
+  const topics = useSelector(topicsSelector); 
   
   return (
     <section className="center">
